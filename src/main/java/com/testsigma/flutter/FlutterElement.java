@@ -6,12 +6,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSyntaxException;
 import io.appium.java_client.MobileElement;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.Rectangle;
-import org.openqa.selenium.WebElement;
 
+import java.util.Arrays;
 import java.util.Base64;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -24,16 +22,16 @@ import java.util.Map;
  */
 
 public class FlutterElement extends MobileElement{
-	private Map<String, Object> rawMap;
-	private String id;
+	private final Map<String,String> rawMap;
 	private final Gson gson = new Gson();
 
-	public FlutterElement(Map<String, Object> rawMap) {
+	public FlutterElement(ImmutableMap<String, String> rawMap)
+	{
 		this.rawMap = rawMap;
-		id = serialize(rawMap);
+		String id = serialize(rawMap);
 	}
 
-	public Map<String, ?> getRawMap() {
+	public Map<String, String> getRawMap() {
 		return rawMap;
 	}
 
@@ -51,18 +49,6 @@ public class FlutterElement extends MobileElement{
 					}
 				});
 		String mapJsonStringified = gson.toJson(tempMap);
-		String base64Encoded = Base64.getEncoder().encodeToString(mapJsonStringified.getBytes());
-		return base64Encoded;
-	}
-
-	public Map<String, Object> deserialize(String base64Encoded){
-		try{
-			String base64Decoded = Base64.getDecoder().decode(base64Encoded).toString();
-			Map rawMap = gson.fromJson(base64Encoded, Map.class);
-		}catch (JsonSyntaxException jsonsyntaxExc){
-			jsonsyntaxExc.printStackTrace();
-			rawMap.put("empty","empty");
-		}
-		return rawMap;
+		return Base64.getEncoder().encodeToString(mapJsonStringified.getBytes());
 	}
 }

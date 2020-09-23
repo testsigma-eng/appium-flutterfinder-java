@@ -1,7 +1,6 @@
 package com.testsigma.flutter;
 
 import com.google.common.collect.ImmutableMap;
-import io.appium.java_client.MobileElement;
 import org.openqa.selenium.remote.FileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
