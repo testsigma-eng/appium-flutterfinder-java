@@ -1,6 +1,6 @@
 # FlutterFinder-java-0.1
 
-Flutter appium finder plugin for appium-java client
+Flutter finder plugin for appium-java client
 
 Sample code
 ```
