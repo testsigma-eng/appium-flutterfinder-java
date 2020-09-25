@@ -26,7 +26,7 @@ public class FlutterElement extends MobileElement{
 	public FlutterElement(ImmutableMap<String, Object> rawMap)
 	{
 		this.rawMap = rawMap;
-		String id = serialize(rawMap);
+		id = serialize(rawMap);
 	}
 
 	public Map<String, Object> getRawMap() {
