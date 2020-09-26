@@ -1,4 +1,4 @@
-# FlutterFinder-java-0.1
+# FlutterFinder-0.1.1
 
 Flutter finder plugin for appium-java client
 
@@ -11,4 +11,14 @@ element.click();
 
 Contains the Java port for FlutterElement ported from kotlin code for the same from https://github.com/truongsinh/appium-flutter-driver
 
-More locator mechanisms to be added later.
+FlutterElement extends the MobileElement Class. Therefore, all the basic actions like click, sendKeys e.t.c are supported.
+
+### TODO
+- [ ] Add Testing Code
+- [ ] Implement mocking for selenium webdriver
+- [ ] Add locators by text
+- [ ] Add locators by byTooltip
+- [ ] Add locators by bySemanticsLabel
+- [ ] Add locators by ancestor
+- [ ] Add locators by descendant
+- [ ] Add locators by byType
